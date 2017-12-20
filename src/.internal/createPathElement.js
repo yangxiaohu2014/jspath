@@ -1,3 +1,5 @@
+import toString from './toString'
+import isString from './isString'
 /**
  * 创建svg Path Dom元素
  *
@@ -10,10 +12,11 @@
  * const pathEl = createPathElement()
  *
  */
+
 function createPathElement(pathString = 'M0,0') {
   var el = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 
-  el.setAttribute('d', pathString)
+  el.setAttribute('d', toString(pathString, '%s'))
 
   return el
 }

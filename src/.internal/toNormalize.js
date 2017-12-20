@@ -11,7 +11,7 @@ import toString from './toString'
  *
  * @example
  *
- *   toNormalize('M10 10 h 80 v 80 h -80 Z')
+ *   toNormalize('M10 10 h 80 v 80 h -80 L 20 40 Z')
  *   // => [["M",10,10],["L",90,10],["L",90,90],["L",10,90],["L",10,10]]
  *   
  *   toNormalize('M50,50v50h70c80,200,150,200,100,10q50 60 80 70t80,90 Z', '%s')
@@ -22,15 +22,15 @@ import toString from './toString'
 function toNormalize(path, pattern = '[]') {
   var absPathArray = toAbsolute(path, '[]')
   var len = absPathArray.length
-  var x0, y0, x, y, x1, y1, x2, y2, preType, type, seg, i 
+  var x0, y0, x, y, x1, y1, x2, y2, preType, type, len1, i 
   var newPath = []
 
   for (i = 0; i < len; i++) {
-    seg = absPathArray[i].slice(0)
-    type = seg.shift()
-
+    let seg = absPathArray[i].slice(0)
     let newSeg = []
-    let len1 = seg.length
+
+    type = seg.shift()
+    len1 = seg.length
 
     switch(type) {
       case 'M':
@@ -43,8 +43,11 @@ function toNormalize(path, pattern = '[]') {
       case 'H':
       case 'V':
       case 'Z':
+        console.log(type, x0, x)
         x = type === 'Z' ? x0 : type === 'V' ? x : seg[0]
-        y = type === 'Z' ? y0 : type === 'H' ? y : seg[0]
+        y = type === 'Z' ? y0 : type === 'H' ? y : type === 'V' ? seg[0] : seg[1]
+        console.log(type, x0, x)
+        console.log('=========')
         newSeg = ['L', x, y]
         preType = 'L'
         break

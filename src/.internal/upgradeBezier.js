@@ -5,7 +5,7 @@ import isString from './isString'
 
 function upgradeBezier(path, degree = 3) {
     if (!isString(path) && !isArray(path)) {
-        return console.warn('path必须是长度为8的数组或者包含M和C命令符的字符串')
+        return console.warn('path')
     }
 
     function transfer(a, b, i, degree) {
