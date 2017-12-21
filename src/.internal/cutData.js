@@ -8,5 +8,7 @@
 function cutData(t) {
     return function(p, q) {
         return p + t * (q - p)
-    };
+    }
 }
+
+export default cutData

@@ -1,4 +1,5 @@
 import fix from './fix'
+import toString from './toString'
 
 function _length() {
   	var el = document.createElementNS('http://www.w3.org/2000/svg', 'path')
@@ -9,4 +10,5 @@ function _length() {
 	}
 }
 
-export default const length = _length()
+const length = _length()
+export default length

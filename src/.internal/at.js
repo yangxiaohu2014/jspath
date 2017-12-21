@@ -1,7 +1,7 @@
 import createPathElement from './createPathElement'
 import isArray from './isArray'
 import toString from './toString'
-import precision from './config'
+import {precision} from './config'
 
 /**
  * [at 获取曲线上某一个位置的点坐标、切线单位向量、倾斜角弧度值表示]

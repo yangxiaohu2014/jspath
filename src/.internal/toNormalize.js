@@ -1,5 +1,6 @@
 import toAbsolute from './toAbsolute'
 import toString from './toString'
+import length from './length'
 
 /**
  * [toNormalize 将路径转换成仅包含M、L、C、Q、A命令的格式]

@@ -35,3 +35,5 @@ function toArray(path) {
 		return fix(seg.split(','))
 	})
 }
+
+export default toArray

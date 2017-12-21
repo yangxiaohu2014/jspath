@@ -33,4 +33,4 @@ function upgradeToCurve(path, pattern = '[]') {
 	return toString(result, pattern)
 }
 
-export upgradeToCurve
+export default upgradeToCurve

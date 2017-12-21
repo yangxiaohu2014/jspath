@@ -2,6 +2,7 @@ import flattern from './flattern'
 import toAbsolute from './toAbsolute'
 import isArray from './isArray'
 import isString from './isString'
+import fix from './fix'
 
 function upgradeBezier(path, degree = 3) {
     if (!isString(path) && !isArray(path)) {

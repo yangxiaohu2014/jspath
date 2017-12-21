@@ -68,18 +68,17 @@ function cutBezier(path, t = 0, pattern = '[]') {
     leftPart = fix(leftPart, 3)
     rightPart = fix(rightPart, 3)
 
+    leftPart = [['M', leftPart[0], leftPart[1]], ['C', ...leftPart.slice(2)]]
+    rightPart = [['M', rightPart[0], rightPart[1]], ['C', ...rightPart.slice(2)]]
+
     if (pattern === '[]') {
         return [leftPart, rightPart]
     }
-
-    leftPart.splice(2, 1, 'C')
-    leftPart.unshift('M')
-
-    rightPart.splice(2, 1, 'C')
-    rightPart.unshift('M')
 
     return [
         toString(leftPart, pattern),
         toString(rightPart, pattern)
     ]
 }
+
+export default cutBezier

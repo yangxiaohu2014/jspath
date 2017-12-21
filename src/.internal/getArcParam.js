@@ -17,4 +17,4 @@ function getArcParams(pathString = '') {
     return arr
 }
 
-export getArcParams
+export default getArcParams

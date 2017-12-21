@@ -1,6 +1,7 @@
 import cutData from './cutData'
 import isString from './isString'
 import isArray from './isArray'
+import isNumber from './isNumber'
 import toAbsolute from './toAbsolute'
 import fix from './fix'
 import flattern from './flattern'
@@ -36,20 +37,16 @@ function cutLine(points, t = 0, pattern = '[]') {
 
     var cutFunc = cutData(t)
     var ps = isArray(points) ? points.slice(0) : flattern(toAbsolute(points, '[]', true))
-    var cx = cutFunc(ps[0], ps[2])
-    var cy = cutFunc(ps[1], ps[3])
-    var leftPart = fix([ps[0], ps[1], cx, cy], 3)
-    var rightPart = fix([cx, cy, ps[2], ps[3]], 3)
+    var cx = fix(cutFunc(ps[0], ps[2]), 3)
+    var cy = fix(cutFunc(ps[1], ps[3]), 3)
+
+    ps = fix(ps, 3)
+    var leftPart = [['M', ps[0], ps[1]], ['L', cx, cy]]
+    var rightPart = [['M', cx, cy], ['L', ps[2], ps[3]]]
 
     if (pattern === '[]') {
         return [leftPart, rightPart]
     }
-
-    leftPart.splice(2, 1, 'L')
-    leftPart.unshift('M')
-
-    rightPart.splice(2, 1, 'L')
-    rightPart.unshift('M')
 
     return [
         toString(leftPart, pattern),
