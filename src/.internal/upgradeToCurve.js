@@ -4,12 +4,13 @@ import isString from './isString'
 import toString from './toString'
 
 /**
- * [upgradeToCurve 将直线和二阶贝塞尔曲线升阶为三阶贝塞尔曲线]
+ * @name upgradeToCurve
+ * @description 将直线和二阶贝塞尔曲线升阶为三阶贝塞尔曲线
+ * @function
  * @since 0.1.0
- * @category Cut
  * @param  {Array|String} path [不包含命令参数的数组或者包含命令参数的字符串]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array|String}   [升阶后的贝塞尔曲线]
+ * @returns {Array|String}   [升阶后的贝塞尔曲线]
  * @example
  * 
  *  upgradeToCurve('M10 80 L 180 80', '%s')
@@ -20,6 +21,7 @@ import toString from './toString'
  *
  *  upgradeToCurve([10, 80, 95, 10, 180, 80], '[]')
  *  // => [["M",10,80],["C",73.75,27.5,137.5,45,180,80]]
+ *
  */
 
 function upgradeToCurve(path, pattern = '[]') {

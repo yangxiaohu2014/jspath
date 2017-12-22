@@ -9,15 +9,15 @@ import sweepAngle from './sweepAngle'
 import flattern from './flattern'
 
 /**
- * [cutArc 将一条椭圆弧切割成两条]
+ * @name cutArc
+ * @description 将一条椭圆弧切割成两条
+ * @function
  * @since 0.1.0
- * @category Cut
  * @param  {Array|String} path [不包含命令参数的数组或者包含命令参数的字符串]
  *   'M x1,y1 [A|a] rx ry x_axis_rotation large_arc_flag sweep_flag x3,y3' 
  * @param  {Number} t     [分割的位置比例，[0, 1]]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array}        [分割后得到的两段椭圆弧参数]
- * @example
+ * @returns {Array}        [分割后得到的两段椭圆弧参数]
  *
  */
 function cutArc(path, t = 0, pattern = '[]') {

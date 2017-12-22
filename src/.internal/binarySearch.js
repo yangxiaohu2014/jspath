@@ -1,7 +1,8 @@
 /**
- * [binarySearch 在有序数组中从前往后查找第一个大于或等于val的位置]
+ * @name binarySearch
+ * @description 在有序数组中从前往后查找第一个大于或等于val的位置
+ * @function
  * @since 0.1.0
- * @category Math
  * @param {Array} values 有序数组 
  * @param {Number} val 目标值
  * @param {Function} condition 判断条件     

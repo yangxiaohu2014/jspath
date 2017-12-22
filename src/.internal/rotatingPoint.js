@@ -1,8 +1,8 @@
 /**
- * 一点绕着一固定点旋转得到新点
- *
+ * @name rotatingPoint
+ * @description 一点绕着一固定点旋转得到新点
+ * @function
  * @since 0.1.0
- * @category Math
  * @param {Array} points 依次为固定点、绕点坐标。
  * @param {number} beta 旋转的角度，范围为[-PI, PI]
  * @returns {Array} 返回旋转后的新点坐标

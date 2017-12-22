@@ -1,12 +1,13 @@
 import isArray from './isArray'
 
 /**
- * [toString 将路径数据格式化成特定字符串形式]
+ * @name toString
+ * @description 将路径数据格式化成特定字符串形式
+ * @function
  * @since 0.1.0
- * @category Util
  * @param  {Array|String} path [路径字符串或数组]
  * @param  {Reg} pattern    [格式化选项]
- * @return {String}        [格式化后的路径字符串]
+ * @returns {String}        [格式化后的路径字符串]
  *
  * @example
  *

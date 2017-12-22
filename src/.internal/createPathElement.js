@@ -1,10 +1,10 @@
 import toString from './toString'
 import isString from './isString'
 /**
- * 创建svg Path Dom元素
- *
+ * @name createPathElement
+ * @description 创建svg Path Dom元素
+ * @function
  * @since 0.1.0
- * @category Path
  * @param {String} pathString 路径字符串
  * @returns {Dom} 返回SVG Path Dom.
  * @example

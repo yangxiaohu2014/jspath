@@ -7,13 +7,14 @@ import fix from './fix'
 import flattern from './flattern'
 
 /**
- * [cutLine 将一条线段切割成两条]
+ * @name cutLine
+ * @description 将一条线段切割成两条
+ * @function
  * @since 0.1.0
- * @category Cut
  * @param  {Array|String} points [决定线段的起始点坐标或者线段命令，形如'M 1 2L4, 5']
  * @param  {Number} t     [分割的位置比例，[0, 1]]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array}        [分割得到定的两条线段的参数数组]
+ * @returns {Array}        [分割得到定的两条线段的参数数组]
  * @example
  *
  *   cutLine([5, 8, 12, 14], .4, '[]')

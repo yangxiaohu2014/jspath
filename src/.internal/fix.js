@@ -1,7 +1,8 @@
 /**
- * [fix 数值取精度]
+ * @name fix
+ * @description 数值取精度
+ * @function
  * @since 0.1.0
- * @category Math
  * @param {Array|Number} values 要处理的单个数字或者数组 
  * @param {Number} degree[default=3] 精度位数       
  * @returns {Array|Number} 返回保留精度后的值

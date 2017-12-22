@@ -8,13 +8,14 @@ import flattern from './flattern'
 import fix from './fix'
 
 /**
- * [cutBezier 将一条任意阶(1阶、2阶、3阶...)贝塞尔曲线切割成两条]
+ * @name cutBezier
+ * @description 将一条任意阶(1阶、2阶、3阶...)贝塞尔曲线切割成两条
+ * @function
  * @since 0.1.0
- * @category Cut
  * @param  {Array|String} path [原贝塞尔曲线的参数数组或者字符]
  * @param  {Number} t     [分割的位置比例，[0, 1]]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array}        [分割得到定的两条贝塞尔曲线的参数数组]
+ * @returns {Array}        [分割得到定的两条贝塞尔曲线的参数数组]
  * @example
  *
  *  cutBezier('M10 10 C 20 20, 40 20, 50 10', .4, '[]')

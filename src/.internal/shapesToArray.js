@@ -1,7 +1,8 @@
 /**
- * [shapesToArray shapes格式的数据转换成array格式]
+ * @name shapesToArray
+ * @description shapes格式的数据转换成array格式
+ * @function
  * @since 0.1.0
- * @category Path
  * @param  {Array} shapes [getShapes方法得到的数据]
  * @return {Array|String} [格式化后的路径]
  *

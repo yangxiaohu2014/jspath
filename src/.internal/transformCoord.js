@@ -1,14 +1,15 @@
 /**
- * [transformCoord 坐标矩阵转换]
+ * @name transformCoord
+ * @description 坐标矩阵转换
+ * @function
  * @since 0.1.0
- * @category Util
  * @param  {Array} coord [二维坐标]
  * @param  {Array} matrix [转化数组]
  *    [a, b, c, d, e, f]等价
  *      a c e
     	b d f
     	0 0 1
- * @return {Array}        [新坐标]
+ * @returns {Array}        [新坐标]
  *
  */
 

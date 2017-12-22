@@ -1,8 +1,9 @@
 /**
- * [sweepAngle P0P1绕点P0逆时针旋转到P0P2扫过的角度]
+ * @name sweepAngle
+ * @description P0P1绕点P0逆时针旋转到P0P2扫过的角度
+ * @function
  * @since 0.1.0
- * @category Math
- * @param {Array} [points] 三个点坐标P0[x0, y0], P1[x1, y1], P2[x2, y2], 则points[x0, y0, x1, y1, x2, y2]        
+ * @param {Array} points 三个点坐标P0[x0, y0], P1[x1, y1], P2[x2, y2], 则points[x0, y0, x1, y1, x2, y2]        
  * @returns {Number} 返回角度，单位度
  *
  * @example

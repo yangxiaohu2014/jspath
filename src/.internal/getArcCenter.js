@@ -2,12 +2,13 @@ import createPathElement from './createPathElement'
 import toAbsolute from './toAbsolute'
 
 /**
- * [getArcCenter 获取椭圆弧中心点坐标]
+ * @name getArcCenter
+ * @description 获取椭圆弧中心点坐标
+ * @function
  * @since 0.1.0
- * @category Math
- * @param {String|...Number} [values] [x1, y1, rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, x3, y3] 或
+ * @param {String|...Number} values [x1, y1, rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, x3, y3] 或
  *                          'M x1,y1 [A|a] rx ry x_axis_rotation large_arc_flag sweep_flag x3,y3'         
- * @returns {[Array]} 返回中心坐标
+ * @returns {Array} 返回中心坐标
  *
  * @example
  *

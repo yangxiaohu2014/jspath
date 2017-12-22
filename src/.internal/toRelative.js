@@ -2,12 +2,13 @@ import toArray from './toArray'
 import toString from './toString'
 
 /**
- * [toRelative 将路径数据按命令转化成数组形式]
+ * @name toRelative
+ * @description 将路径数据按命令转化成数组形式
+ * @function
  * @since 0.1.0
- * @category Util
  * @param  {Array|String} path [路径字符串或数组]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array|String}        [格式化后的路径]
+ * @returns {Array|String}        [格式化后的路径]
  *
  * @example
  *

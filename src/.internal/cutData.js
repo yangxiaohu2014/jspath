@@ -1,8 +1,10 @@
 /**
- * [cutData 分割相邻数据<辅助>]
- * @param  {[Num]} t [分割的位置，[0, 1]]
+ * @name cutData
+ * @description 分割相邻数据
+ * @function
+ * @param  {Num} t [分割的位置，[0, 1]]
  * @private
- * @return {[function]}   [分割函数]
+ * @returns {function}   [分割函数]
  */
 
 function cutData(t) {

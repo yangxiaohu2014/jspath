@@ -2,11 +2,12 @@ import isArray from './isArray'
 import fix from './fix'
 
 /**
- * [toArray 将路径数据按命令转化成数组形式]
+ * @name toArray
+ * @description 将路径数据按命令转化成数组形式
+ * @function
  * @since 0.1.0
- * @category Util
  * @param  {Array|String} path [路径字符串或数组]
- * @return {Array}        [格式化后的路径数组]
+ * @returns {Array}        [格式化后的路径数组]
  *
  * @example
  *

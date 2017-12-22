@@ -3,13 +3,14 @@ import toCurve from './toCurve'
 import length from './length'
 
 /**
- * [getShapes 根据路径字符串或者数组获取组成路径的规范化或者贝塞尔曲线化后的数组]
+ * @name getShapes
+ * @description 根据路径字符串或者数组获取组成路径的规范化或者贝塞尔曲线化后的数组
+ * @function
  * @since 0.1.0
- * @category Path
  * @param  {Array|String} path [路径字符串或数组]
  * @param  {string} pattern [输出的格式，可选项为'normalize', 'curve']
  * @param  {Boolean} hasNoCommand 是否包含命令符
- * @return {Array|String}        [格式化后的路径]
+ * @returns {Array|String}        [格式化后的路径]
  *
  * @example
  *

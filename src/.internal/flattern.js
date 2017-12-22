@@ -1,9 +1,10 @@
 import isArray from './isArray'
 
 /**
- * [flattern 数组拍扁]
+ * @name flattern
+ * @description 数组拍扁
+ * @function
  * @since 0.1.0
- * @category Math
  * @param {Array} array 要拍扁的数组 
  * @param {Boolean} deep 是否递归拍扁     
  * @returns {Array} 返回拍扁后的数组

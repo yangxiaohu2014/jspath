@@ -2,9 +2,10 @@ import toArray from './toArray'
 import toString from './toString'
 
 /**
- * [toAbsolute 将路径数据按命令转化成数组形式]
+ * @name toAbsolute
+ * @description 将路径数据按命令转化成数组形式
+ * @function
  * @since 0.1.0
- * @category Util
  * @param  {Array|String} path [路径字符串或数组]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
  * @param  {Boolean} hasNoCommand 是否包含命令符

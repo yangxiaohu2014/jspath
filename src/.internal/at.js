@@ -4,12 +4,13 @@ import toString from './toString'
 import {precision} from './config'
 
 /**
- * [at 获取曲线上某一个位置的点坐标、切线单位向量、倾斜角弧度值表示]
+ * @name at
+ * @description 获取曲线上某一个位置的点坐标、切线单位向量、倾斜角弧度值表示
+ * @function
  * @since 0.1.0
- * @category Path
  * @param  {Array|String} path [包含命令的路径参数数组或者字符]
  * @param  {Number} t     [相对路径的位置比例，[0, 1]]
- * @return {Object}        [分割得到定的两条贝塞尔曲线的参数数组]
+ * @returns {Object}        [分割得到定的两条贝塞尔曲线的参数数组]
  *         {point, unitVector, rad}
  * @example
  *

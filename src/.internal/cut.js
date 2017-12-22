@@ -8,13 +8,14 @@ import cutArc from './cutArc'
 import cutBezier from './cutBezier'
 
 /**
- * [cutArc 切割复合路径]
+ * @name cutArc
+ * @description 切割复合路径
+ * @function
  * @since 0.1.0
- * @category Cut
  * @param  {Array|String} path [包含命令参数的数组或者包含命令参数的字符串]
  * @param  {Number} t     [分割的位置比例，[0, 1]]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array}        [分割后得到的两段路径参数]
+ * @returns {Array}        [分割后得到的两段路径参数]
  * @example
  *   cut('M100,100A120,60,-60,0,0,150,330L100, 400Z', .5)
  *   // => [[["M",100,100],["A",120,60,-60,0,0,130.734,347.186]],[["M",130.734,347.186],["A",120,60,-60,0,0,150,330],["L",100,400],["L",100,100]]]

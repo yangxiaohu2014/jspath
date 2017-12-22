@@ -3,12 +3,13 @@ import arcToCurve from './arcToCurve'
 import upgradeToCurve from './upgradeToCurve'
 
 /**
- * [toCurve 将路径转换成仅包含M、C命令的格式]
+ * @name toCurve
+ * @description 将路径转换成仅包含M、C命令的格式
+ * @function
  * @since 0.1.0
- * @category Util
  * @param  {Array|String} path [路径字符串或数组]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @return {Array|String}   [格式化后的路径]
+ * @returns {Array|String}   [格式化后的路径]
  *
  * @example
  *
