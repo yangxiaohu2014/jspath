@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arcToCurve">arcToCurve</a></li><li><a href="global.html#at">at</a></li><li><a href="global.html#binarySearch">binarySearch</a></li><li><a href="global.html#createPathElement">createPathElement</a></li><li><a href="global.html#cutArc">cutArc</a></li><li><a href="global.html#cutBezier">cutBezier</a></li><li><a href="global.html#cutLine">cutLine</a></li><li><a href="global.html#fix">fix</a></li><li><a href="global.html#flattern">flattern</a></li><li><a href="global.html#getArcCenter">getArcCenter</a></li><li><a href="global.html#getShapes">getShapes</a></li><li><a href="global.html#rotatingPoint">rotatingPoint</a></li><li><a href="global.html#shapesToArray">shapesToArray</a></li><li><a href="global.html#sub">sub</a></li><li><a href="global.html#sweepAngle">sweepAngle</a></li><li><a href="global.html#toAbsolute">toAbsolute</a></li><li><a href="global.html#toArray">toArray</a></li><li><a href="global.html#toCurve">toCurve</a></li><li><a href="global.html#toNormalize">toNormalize</a></li><li><a href="global.html#toRelative">toRelative</a></li><li><a href="global.html#toString">toString</a></li><li><a href="global.html#transformCoord">transformCoord</a></li><li><a href="global.html#upgradeToCurve">upgradeToCurve</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arcToCurve">arcToCurve</a></li><li><a href="global.html#at">at</a></li><li><a href="global.html#binarySearch">binarySearch</a></li><li><a href="global.html#createPathElement">createPathElement</a></li><li><a href="global.html#cut">cut</a></li><li><a href="global.html#cutArc">cutArc</a></li><li><a href="global.html#cutBezier">cutBezier</a></li><li><a href="global.html#cutLine">cutLine</a></li><li><a href="global.html#fix">fix</a></li><li><a href="global.html#flattern">flattern</a></li><li><a href="global.html#getArcCenter">getArcCenter</a></li><li><a href="global.html#getShapes">getShapes</a></li><li><a href="global.html#rotatingPoint">rotatingPoint</a></li><li><a href="global.html#shapesToArray">shapesToArray</a></li><li><a href="global.html#sub">sub</a></li><li><a href="global.html#sweepAngle">sweepAngle</a></li><li><a href="global.html#toAbsolute">toAbsolute</a></li><li><a href="global.html#toArray">toArray</a></li><li><a href="global.html#toCurve">toCurve</a></li><li><a href="global.html#toNormalize">toNormalize</a></li><li><a href="global.html#toRelative">toRelative</a></li><li><a href="global.html#toString">toString</a></li><li><a href="global.html#transformCoord">transformCoord</a></li><li><a href="global.html#tween">tween</a></li><li><a href="global.html#upgradeBezier">upgradeBezier</a></li><li><a href="global.html#upgradeToCurve">upgradeToCurve</a></li></ul>
 </nav>
 
 <div id="main">
@@ -184,13 +184,19 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>arcToCurve([0,0, 100,60, -30, 1,0, 30, 90], '[]')
- // => [["M",0,0],["C",-63.085,-1.754,-136.713,57.212,-132.531,106.139],["C",-128.349,155.066,-49.493,157.259,9.409,110.086],["C",17.178,103.864,24.121,97.091,30,90]]
- 
- arcToCurve([0,0, 100,60, -30, 1,0, 30, 90], '%s')
- // => "M 0,0 C -63.085 -1.754 -136.713 57.212 -132.531,106.139 C -128.349 155.066 -49.493 157.259 9.409,110.086 C 17.178 103.864 24.121 97.091 30,90"
+// => [["M",0,0],["C",-63.085,-1.754,-136.713,57.212,-132.531,106.139],
+       ["C",-128.349,155.066,-49.493,157.259,9.409,110.086],
+       ["C",17.178,103.864,24.121,97.091,30,90]]
 
- arcToCurve("M0,0A100,60, -30, 1,0, 30, 90", '%s')
- // => "M 0,0 C -63.085 -1.754 -136.713 57.212 -132.531,106.139 C -128.349 155.066 -49.493 157.259 9.409,110.086 C 17.178 103.864 24.121 97.091 30,90"</code></pre>
+arcToCurve([0,0, 100,60, -30, 1,0, 30, 90], '%s')
+// => "M 0,0 C -63.085 -1.754 -136.713 57.212 -132.531,106.139 
+       C -128.349 155.066 -49.493 157.259 9.409,110.086 
+       C 17.178 103.864 24.121 97.091 30,90"
+
+arcToCurve("M0,0A100,60, -30, 1,0, 30, 90", '%s')
+// => "M 0,0 C -63.085 -1.754 -136.713 57.212 -132.531,106.139 
+       C -128.349 155.066 -49.493 157.259 9.409,110.086 
+       C 17.178 103.864 24.121 97.091 30,90"</code></pre>
 
 
 
@@ -380,19 +386,19 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>at('M100,100A120,60,-60,0,0,150,325', .2)
- // => {"point":[47.88,168.15],"unitVector":[-0.106,0.994],"rad":1.677}
+// => {"point":[47.88,168.15],"unitVector":[-0.106,0.994],"rad":1.677}
 
- at('M100,100A120,60,-60,0,0,150,325', 0)
- // => {"point":[100,100],"unitVector":[-0.958,-0.286],"rad":-2.852}
+at('M100,100A120,60,-60,0,0,150,325', 0)
+// => {"point":[100,100],"unitVector":[-0.958,-0.286],"rad":-2.852}
 
- at('M100,100A120,60,-60,0,0,150,325', 1)
- // => {"point":[150,325],"unitVector":[0.712,-0.703],"rad":-0.779}
+at('M100,100A120,60,-60,0,0,150,325', 1)
+// => {"point":[150,325],"unitVector":[0.712,-0.703],"rad":-0.779}
 
- at('M10 10 h 80 v 80 h -80 Z', 0.5)
- // => {"point":[90,90],"unitVector":[-0.707,0.707],"rad":2.356}
+at('M10 10 h 80 v 80 h -80 Z', 0.5)
+// => {"point":[90,90],"unitVector":[-0.707,0.707],"rad":2.356}
 
- at('M10 10 h 80 v 80 h -80 Z', 0.2)
- // => {"point":[74,10],"unitVector":[1,0],"rad":0}</code></pre>
+at('M10 10 h 80 v 80 h -80 Z', 0.2)
+// => {"point":[74,10],"unitVector":[1,0],"rad":0}</code></pre>
 
 
 
@@ -583,25 +589,25 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>binarySearch([3,4,5,6,7,8,9], 4.6)
-  // => 2
+// => 2
 
-  binarySearch([3,4,5,6,7,8,9], 10)
-  // => 6
+binarySearch([3,4,5,6,7,8,9], 10)
+// => 6
 
-  binarySearch([3,4,5,6,7,8,9], -1)
-  // => 0
+binarySearch([3,4,5,6,7,8,9], -1)
+// => 0
 
-  var shapes = [{"letter":"A","x":100,"y":100,"x2":150,"y2":330,"isMoved":true,"len":437.683,"sumLen":437.683,"totalLen":823.707,"seg":["A",120,60,-60,0,0,150,330]},{"letter":"L","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.706,"totalLen":823.707,"seg":["L",100,400]},{"letter":"L","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.706,"totalLen":823.707,"seg":["L",100,100]}]
-  binarySearch(shapes, .8, function(index, val) {
-    var shape0 = shapes[index - 1]
-    var shape = shapes[index]
-    var v0 = shape0 ? shape0.sumLen / shape0.totalLen : 0
-    var v = shape0 ? shape.sumLen / shape.totalLen : 0
+var shapes = [{"letter":"A","x":100,"y":100,"x2":150,"y2":330,"isMoved":true,"len":437.683,"sumLen":437.683,"totalLen":823.707,"seg":["A",120,60,-60,0,0,150,330]},{"letter":"L","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.706,"totalLen":823.707,"seg":["L",100,400]},{"letter":"L","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.706,"totalLen":823.707,"seg":["L",100,100]}]
+binarySearch(shapes, .8, function(index, val) {
+  var shape0 = shapes[index - 1]
+  var shape = shapes[index]
+  var v0 = shape0 ? shape0.sumLen / shape0.totalLen : 0
+  var v = shape0 ? shape.sumLen / shape.totalLen : 0
 
-    console.log(v0, v, index)
-    return val >= v ? 1 : (val &lt; v0) ? -1 : 0
-  })
-  // => 2</code></pre>
+  console.log(v0, v, index)
+  return val >= v ? 1 : (val &lt; v0) ? -1 : 0
+})
+// => 2</code></pre>
 
 
 
@@ -810,7 +816,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const pathEl = createPathElement()</code></pre>
+    <pre class="prettyprint"><code>createPathElement()</code></pre>
 
 
 
@@ -905,7 +911,7 @@
 
     
 
-    <h4 class="name" id="cutArc"><span class="type-signature"></span>cutArc<span class="signature">(path, t, pattern)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="cut"><span class="type-signature"></span>cut<span class="signature">(path, t, pattern)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
@@ -974,10 +980,13 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>cut('M100,100A120,60,-60,0,0,150,330L100, 400Z', .5)
-  // => [[["M",100,100],["A",120,60,-60,0,0,130.734,347.186]],[["M",130.734,347.186],["A",120,60,-60,0,0,150,330],["L",100,400],["L",100,100]]]
+// => [[["M",100,100],["A",120,60,-60,0,0,130.734,347.186]],
+       [["M",130.734,347.186],["A",120,60,-60,0,0,150,330],
+       ["L",100,400],["L",100,100]]]
 
-  cut('M100,100A120,60,-60,0,0,150,330L100, 400Z', .5)
-  // => ["M 100,100 A 120 60 -60 0 0 130.734,347.186", "M 130.734,347.186 A 120 60 -60 0 0 150,330 L 100,400 L 100,100"]</code></pre>
+cut('M100,100A120,60,-60,0,0,150,330L100, 400Z', .5)
+// => ["M 100,100 A 120 60 -60 0 0 130.734,347.186", 
+       "M 130.734,347.186 A 120 60 -60 0 0 150,330 L 100,400 L 100,100"]</code></pre>
 
 
 
@@ -1176,7 +1185,7 @@
 
 
 <div class="description">
-    <p>将一条椭圆弧切割成两条</p>
+    <p>切割复合路径</p>
 </div>
 
 
@@ -1185,6 +1194,15 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>cutArc('M100,100A120,60,-60,0,0,150,330', .8)
+// => [[["M",100,100],["A",120,60,-60,0,0,76.61737060546875,375.81121826171875]],[["M",76.61737060546875,375.81121826171875],["A",120,60,-60,0,0,150,330]]]
+
+cutArc('M100,100A120,60,-60,0,0,150,330', .4, '%s')
+// => ["M 100,100 A 120 60 -60 0 0 13.049847602844238,249.80311584472656","M 13.049847602844238,249.80311584472656 A 120 60 -60 0 0 150,330"]</code></pre>
 
 
 
@@ -1233,8 +1251,7 @@
 
             
 
-            <td class="description last"><p>[不包含命令参数的数组或者包含命令参数的字符串]
-  'M x1,y1 [A|a] rx ry x_axis_rotation large_arc_flag sweep_flag x3,y3'</p></td>
+            <td class="description last"><p>[包含命令参数的数组或者包含命令参数的字符串]</p></td>
         </tr>
 
     
@@ -1304,7 +1321,7 @@
 
         
 <div class="param-desc">
-    <p>[分割后得到的两段椭圆弧参数]</p>
+    <p>[分割后得到的两段路径参数]</p>
 </div>
 
 
@@ -1398,16 +1415,16 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>cutBezier('M10 10 C 20 20, 40 20, 50 10', .4, '[]')
- // => [[10, 10, 14, 14, 19.6, 16.4, 25.52, 17.2],
-        [25.52, 17.2, 34.4, 18.4, 44, 16, 50, 10]
-       ]
- 
- cutBezier('M10 10 C 20 20, 40 20, 50 10', .4, '%,')
- // => ["M10,10C14,19.6,16.4,25.52,17.2", "M25.52,17.2C18.4,44,16,50,10"]
+// => [[10, 10, 14, 14, 19.6, 16.4, 25.52, 17.2],
+       [25.52, 17.2, 34.4, 18.4, 44, 16, 50, 10]
+      ]
 
- cutBezier([10, 10, 20, 20, 40, 20, 50, 10], .4, '[]')
- // => [[10, 10, 14, 14, 19.6, 16.4, 25.52, 17.2],
-        [25.52, 17.2, 34.4, 18.4, 44, 16, 50, 10]
+cutBezier('M10 10 C 20 20, 40 20, 50 10', .4, '%,')
+// => ["M10,10C14,19.6,16.4,25.52,17.2", "M25.52,17.2C18.4,44,16,50,10"]
+
+cutBezier([10, 10, 20, 20, 40, 20, 50, 10], .4, '[]')
+// => [[10, 10, 14, 14, 19.6, 16.4, 25.52, 17.2],
+       [25.52, 17.2, 34.4, 18.4, 44, 16, 50, 10]
        ]</code></pre>
 
 
@@ -1621,13 +1638,13 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>cutLine([5, 8, 12, 14], .4, '[]')
-  // => [[5, 8, 7.8, 10.4], [7.8, 10.4, 12, 14]]
+// => [[5, 8, 7.8, 10.4], [7.8, 10.4, 12, 14]]
 
-  cutLine([5, 8, 12, 14], .4, '%s')
-  // => ["M 5,8 L 10.4", "M 7.8,10.4 L 14"]
+cutLine([5, 8, 12, 14], .4, '%s')
+// => ["M 5,8 L 10.4", "M 7.8,10.4 L 14"]
 
-  cutLine('M 5, 8L12, 14', .4, '%s')
-  // => ["M 5,8 L 10.4", "M 7.8,10.4 L 14"]</code></pre>
+cutLine('M 5, 8L12, 14', .4, '%s')
+// => ["M 5,8 L 10.4", "M 7.8,10.4 L 14"]</code></pre>
 
 
 
@@ -1840,10 +1857,10 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>fix([-2.34355345, 0.454545， 2.454553453, 'a'])
-  // => [-2.344, 0.455, 2.455, "a"]
+// => [-2.344, 0.455, 2.455, "a"]
 
-  fix(-2.34355345)
-  // => -2.344</code></pre>
+fix(-2.34355345)
+// => -2.344</code></pre>
 
 
 
@@ -2048,10 +2065,10 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>flattern([1, 3, [4, 5, [7, 8, 9, 10]], 10])
-  // => [1, 3, 4, 5, [7, 8, 9, 10], 10]
+// => [1, 3, 4, 5, [7, 8, 9, 10], 10]
 
-  flattern([1, 3, [4, 5, [7, 8, 9, 10]], 10], true)
-  // => [1, 3, 4, 5, 7, 8, 9, 10, 10]</code></pre>
+flattern([1, 3, [4, 5, [7, 8, 9, 10]], 10], true)
+// => [1, 3, 4, 5, 7, 8, 9, 10, 10]</code></pre>
 
 
 
@@ -2238,8 +2255,8 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>getArcCenter(-2, 0, 2, 1, 0, 1, 1, Math.PI, 2, 0)
-  
-  // => [0, 0]</code></pre>
+
+// => [0, 0]</code></pre>
 
 
 
@@ -2407,10 +2424,21 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>getShapes('M100,100A120,60,-60,0,0,150,330L100, 400Z')
-  // => [{"letter":"A","x":100,"y":100,"x2":150,"y2":330,"isMoved":true,"len":437.683,"sumLen":437.683,"totalLen":823.707,"seg":["A",120,60,-60,0,0,150,330]},{"letter":"L","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.706,"totalLen":823.707,"seg":["L",100,400]},{"letter":"L","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.706,"totalLen":823.707,"seg":["L",100,100]}]
+// => [{"letter":"A","x":100,"y":100,"x2":150,"y2":330,"isMoved":true,
+        "len":437.683,"sumLen":437.683,"totalLen":823.707,
+        "seg":["A",120,60,-60,0,0,150,330]},
+       {"letter":"L","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,
+        "len":86.023,"sumLen":523.706,"totalLen":823.707,"seg":["L",100,400]},
+       {"letter":"L","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,
+        "len":300,"sumLen":823.706,"totalLen":823.707,"seg":["L",100,100]}]
 	 
-  getShapes('M100,100A120,60,-60,0,0,150,330L100, 400Z', 'curve')
-	 // => [{"letter":"C","x":100,"y":100,"x2":36.294,"y2":372.37,"isMoved":true,"len":308.941,"sumLen":308.941,"totalLen":823.707,"seg":["C",10.039,188.773,-25.354,340.09,36.294,372.37]},{"letter":"C","x":36.294,"y":372.37,"x2":150,"y2":330,"isMoved":false,"len":128.882,"sumLen":437.823,"totalLen":823.707,"seg":["C",64.904,387.351,108.249,371.2,150,330]},{"letter":"C","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.846,"totalLen":823.707,"seg":["C",125,365,108.333,388.333,100,400]},{"letter":"C","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.846,"totalLen":823.707,"seg":["C",100,250,100,150,100,100]}]</code></pre>
+getShapes('M100,100A120,60,-60,0,0,150,330L100, 400Z', 'curve')
+// => [{"letter":"C","x":100,"y":100,"x2":36.294,"y2":372.37,"isMoved":true,
+        "len":308.941,"sumLen":308.941,"totalLen":823.707,
+        "seg":["C",10.039,188.773,-25.354,340.09,36.294,372.37]},
+       {"letter":"C","x":36.294,"y":372.37,"x2":150,"y2":330,"isMoved":false,
+        "len":128.882,"sumLen":437.823,"totalLen":823.707,
+        "seg":["C",64.904,387.351,108.249,371.2,150,330]},{"letter":"C","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.846,"totalLen":823.707,"seg":["C",125,365,108.333,388.333,100,400]},{"letter":"C","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.846,"totalLen":823.707,"seg":["C",100,250,100,150,100,100]}]</code></pre>
 
 
 
@@ -2626,10 +2654,10 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>rotatingPoint([0, 0, 1, 0], Math.PI / 4);
-  // => [0.7071, 0.7071]
+// => [0.7071, 0.7071]
 
-  rotatingPoint([0, 0, 1, 0], -3 * Math.PI / 4);
-  // => [-0.7071, -0.7071]; </code></pre>
+rotatingPoint([0, 0, 1, 0], -3 * Math.PI / 4);
+// => [-0.7071, -0.7071]; </code></pre>
 
 
 
@@ -2815,11 +2843,34 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>shapesToArray[{"letter":"A","x":100,"y":100,"x2":150,"y2":330,"isMoved":true,"len":437.683,"sumLen":437.683,"totalLen":823.707,"seg":["A",120,60,-60,0,0,150,330]},{"letter":"L","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.706,"totalLen":823.707,"seg":["L",100,400]},{"letter":"L","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.706,"totalLen":823.707,"seg":["L",100,100]}]
-  // => [["M",100,100],["A",120,60,-60,0,0,150,330],["L",100,400],["L",100,100]][["M",100,100],["A",120,60,-60,0,0,150,330],["L",100,400],["L",100,100]]
+    <pre class="prettyprint"><code>shapesToArray[{"letter":"A","x":100,"y":100,"x2":150,"y2":330,"isMoved":true,
+               "len":437.683,"sumLen":437.683,"totalLen":823.707,
+               "seg":["A",120,60,-60,0,0,150,330]},
+              {"letter":"L","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,
+               "len":86.023,"sumLen":523.706,"totalLen":823.707,
+               "seg":["L",100,400]},{"letter":"L","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,
+               "len":300,"sumLen":823.706,"totalLen":823.707,"seg":["L",100,100]}]
+// => [["M",100,100],["A",120,60,-60,0,0,150,330],["L",100,400],["L",100,100]][["M",100,100],
+       ["A",120,60,-60,0,0,150,330],["L",100,400],["L",100,100]]
 	 
-	 shapesToArray[{"letter":"C","x":100,"y":100,"x2":36.294,"y2":372.37,"isMoved":true,"len":308.941,"sumLen":308.941,"totalLen":823.707,"seg":["C",10.039,188.773,-25.354,340.09,36.294,372.37]},{"letter":"C","x":36.294,"y":372.37,"x2":150,"y2":330,"isMoved":false,"len":128.882,"sumLen":437.823,"totalLen":823.707,"seg":["C",64.904,387.351,108.249,371.2,150,330]},{"letter":"C","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,"len":86.023,"sumLen":523.846,"totalLen":823.707,"seg":["C",125,365,108.333,388.333,100,400]},{"letter":"C","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,"len":300,"sumLen":823.846,"totalLen":823.707,"seg":["C",100,250,100,150,100,100]}]
-  // => [["M",100,100],["C",10.039,188.773,-25.354,340.09,36.294,372.37],["C",64.904,387.351,108.249,371.2,150,330],["C",125,365,108.333,388.333,100,400],["C",100,250,100,150,100,100]][["M",100,100],["C",10.039,188.773,-25.354,340.09,36.294,372.37],["C",64.904,387.351,108.249,371.2,150,330],["C",125,365,108.333,388.333,100,400],["C",100,250,100,150,100,100]]</code></pre>
+shapesToArray[{"letter":"C","x":100,"y":100,"x2":36.294,"y2":372.37,"isMoved":true,
+               "len":308.941,"sumLen":308.941,"totalLen":823.707,
+               "seg":["C",10.039,188.773,-25.354,340.09,36.294,372.37]},
+              {"letter":"C","x":36.294,"y":372.37,"x2":150,"y2":330,"isMoved":false,
+               "len":128.882,"sumLen":437.823,"totalLen":823.707,
+               "seg":["C",64.904,387.351,108.249,371.2,150,330]},
+              {"letter":"C","x":150,"y":330,"x2":100,"y2":400,"isMoved":false,
+               "len":86.023,"sumLen":523.846,"totalLen":823.707,
+               "seg":["C",125,365,108.333,388.333,100,400]},
+              {"letter":"C","x":100,"y":400,"x2":100,"y2":100,"isMoved":false,
+               "len":300,"sumLen":823.846,"totalLen":823.707,
+               "seg":["C",100,250,100,150,100,100]}]
+// => [["M",100,100],["C",10.039,188.773,-25.354,340.09,36.294,372.37],
+       ["C",64.904,387.351,108.249,371.2,150,330],["C",125,365,108.333,388.333,100,400],
+       ["C",100,250,100,150,100,100]][["M",100,100],["C",10.039,188.773,-25.354,340.09,36.294,372.37],
+       ["C",64.904,387.351,108.249,371.2,150,330],["C",125,365,108.333,388.333,100,400],
+       ["C",100,250,100,150,100,100]
+      ]</code></pre>
 
 
 
@@ -2983,6 +3034,16 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>sub('M100,100A120,60,-60,0,0,150,330L100, 400Z', .4, .6, '%s')
+// => "M 212.89,241.954 L 100,400 L 100,429.482"
+
+sub('M100,100A120,60,-60,0,0,150,330L100, 400Z', .9, .95, '[]')
+// => [["M",100,182.37],["L",100,141.185]][["M",100,182.37],
+       ["L",100,141.185]]</code></pre>
+
+
 
 
     <h5>Parameters:</h5>
@@ -3099,11 +3160,7 @@
 
         
 <div class="param-desc">
-    <p>[分割后得到的两段路径参数]
-  sub('M100,100A120,60,-60,0,0,150,330L100, 400Z', .4, .6, '%s')
-  // =&gt; &quot;M 212.89,241.954 L 100,400 L 100,429.482&quot;</p>
-<p>  sub('M100,100A120,60,-60,0,0,150,330L100, 400Z', .9, .95, '[]')
-  // =&gt; [[&quot;M&quot;,100,182.37],[&quot;L&quot;,100,141.185]][[&quot;M&quot;,100,182.37],s[&quot;L&quot;,100,141.185]]</p>
+    <p>[分割后得到的两段路径参数]</p>
 </div>
 
 
@@ -3197,8 +3254,8 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>sweepAngle([1, 2, -1, 2, 1, 3])
-  
-  // => 270</code></pre>
+
+// => 270</code></pre>
 
 
 
@@ -3362,10 +3419,10 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>toAbsolute("M10 10 h 80 v 80 h -80 Z")
-  // => "M 10,10 H 90 V 90 H 10 Z"
+// => "M 10,10 H 90 V 90 H 10 Z"
 	 
-	 toAbsolute("M10 10 h 80 v 80 h -80 Z", true)
-	 // => [["M",10,10],["H",90],["V",90],["H",10],["Z"]]</code></pre>
+toAbsolute("M10 10 h 80 v 80 h -80 Z", true)
+// => [["M",10,10],["H",90],["V",90],["H",10],["Z"]]</code></pre>
 
 
 
@@ -3581,10 +3638,10 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>toArray('M10 10 h 80 v 80 h -80 Z')
-	 // => [["M",10,10],["h",80],["v",80],["h",-80],["Z"]]
-	 
-	 toString(['M100,100A120,60,-60,0,0,150,325'])
-	 // => [["M",10,10],["h",80],["v",80],["h",-80],["Z"]]</code></pre>
+// => [["M",10,10],["h",80],["v",80],["h",-80],["Z"]]
+
+toString(['M100,100A120,60,-60,0,0,150,325'])
+// => [["M",10,10],["h",80],["v",80],["h",-80],["Z"]]</code></pre>
 
 
 
@@ -3751,10 +3808,12 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>toCurve('M10 10 h 80 v 80 h -80 Z')
-  // => [["M",10,10],["C",50,10,76.667,10,90,10],["C",90,50,90,76.667,90,90],["C",50,90,23.333,90,10,90],["C",10,50,10,23.333,10,10]]
-  
-  toCurve('M10 10 h 80 v 80 h -80 Z', '%s')
-  // => "M 10,10 C 50 10 76.667 10 90,10 C 90 50 90 76.667 90,90 C 50 90 23.333 90 10,90 C 10 50 10 23.333 10,10"</code></pre>
+// => [["M",10,10],["C",50,10,76.667,10,90,10],["C",90,50,90,76.667,90,90],
+       ["C",50,90,23.333,90,10,90],["C",10,50,10,23.333,10,10]]
+
+toCurve('M10 10 h 80 v 80 h -80 Z', '%s')
+// => "M 10,10 C 50 10 76.667 10 90,10 C 90 50 90 76.667 90,90 
+       C 50 90 23.333 90 10,90 C 10 50 10 23.333 10,10"</code></pre>
 
 
 
@@ -3947,10 +4006,11 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>toNormalize('M10 10 h 80 v 80 h -80 L 20 40 Z')
-  // => [["M",10,10],["L",90,10],["L",90,90],["L",10,90],["L",10,10]]
-  
-  toNormalize('M50,50v50h70c80,200,150,200,100,10q50 60 80 70t80,90 Z', '%s')
-  // => "M 50,50 L 50,100 L 120,100 C 200 300 270 300 220,110 Q 270 170 300,180 Q 490 370 380,270 L 50,50"</code></pre>
+// => [["M",10,10],["L",90,10],["L",90,90],["L",10,90],["L",10,10]]
+
+toNormalize('M50,50v50h70c80,200,150,200,100,10q50 60 80 70t80,90 Z', '%s')
+// => "M 50,50 L 50,100 L 120,100 C 200 300 270 300 220,110 
+       Q 270 170 300,180 Q 490 370 380,270 L 50,50"</code></pre>
 
 
 
@@ -4143,10 +4203,10 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>toRelative("M 10,10 H 90 V 90 H 10 Z", true)
-  // => [['M', 10, 10], ['h', 80], ['v', 80], ['h', -80], ['z']]
+// => [['M', 10, 10], ['h', 80], ['v', 80], ['h', -80], ['z']]
 
-	 toRelative([["M",10,10],["H",90],["V",90],["H",10],["Z"]])
-  // => "M10 10 h 80 v 80 h -80 Z"</code></pre>
+toRelative([["M",10,10],["H",90],["V",90],["H",10],["Z"]])
+// => "M10 10 h 80 v 80 h -80 Z"</code></pre>
 
 
 
@@ -4339,13 +4399,13 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>toString('M100,100A120,60,-60,0,0,150,325')
-	 // => "M100,100A120,60,-60,0,0,150,325"
-	 
-	 toString('M100,100A120,60,-60,0,0,150,325', '%s')
-	 // => "M 100,100 A 120 60 -60 0 0 150,325"
+// => "M100,100A120,60,-60,0,0,150,325"
+
+toString('M100,100A120,60,-60,0,0,150,325', '%s')
+// => "M 100,100 A 120 60 -60 0 0 150,325"
 	
-	 toString('M100,100A120,60,-60,0,0,150,325', '%n')
-	 // => "M 100,100\nA 120 60 -60 0 0 150,325</code></pre>
+toString('M100,100A120,60,-60,0,0,150,325', '%n')
+// => "M 100,100\nA 120 60 -60 0 0 150,325</code></pre>
 
 
 
@@ -4651,6 +4711,423 @@
 
     
 
+    <h4 class="name" id="tween"><span class="type-signature"></span>tween<span class="signature">(path, t, pattern)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tween.js.html">tween.js</a>, <a href="tween.js.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>0.1.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>切割复合路径</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>tween('M100,100A120,60,-60,0,0,150,330', 'M100,100L150,330L100, 400Z', .6)
+// => [["M",74.5176,208.948],["C",125,215,141.667,291.667,125.2876,346.9012],
+       ["M",95.2876,388.9012],["C",100,250,100,150,120,192],["M",130,238],
+       ["C",125,365,108.333,388.333,74.5176,388.948]]
+
+tween('M100,100A120,60,-60,0,0,150,330', 'M100,100L150,330L100, 400Z', 0, '%s')
+// => M 36.294,372.37 C 125 215 141.667 291.667 88.219,372.253 M 88.219,372.253 C 100 250 100 150 150,330 C 125 365 108.333 388.333 36.294,372.37</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[包含命令参数的数组或者包含命令参数的字符串]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[分割的位置比例，[0, 1]]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[输出的格式，可选项为'[]', '%,', '%s', '%/n']</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>[分割后得到的两段路径参数]</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="upgradeBezier"><span class="type-signature"></span>upgradeBezier<span class="signature">(path, pattern)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="upgradeBezier.js.html">upgradeBezier.js</a>, <a href="upgradeBezier.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>0.1.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>升阶贝塞尔曲线</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>upgradeBezier('M10 80 L 180 80', 2)
+// => [10, 80, 123.333, 80, 180, 80]
+
+upgradeBezier('M10 80 L 180 80', 3)
+// => [10, 80, 95, 80, 151.667, 80, 180, 80]
+
+upgradeBezier('M10 80 C 123.333, 80, 180, 80', 4)
+// => [10, 80, 78, 80, 129, 80, 163, 80, 180, 80]</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[不包含命令参数的数组或者包含命令参数的字符串]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[输出的格式，可选项为'[]', '%,', '%s', '%/n']</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>[升阶后的贝塞尔曲线]</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
     <h4 class="name" id="upgradeToCurve"><span class="type-signature"></span>upgradeToCurve<span class="signature">(path, pattern)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
@@ -4720,13 +5197,13 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>upgradeToCurve('M10 80 L 180 80', '%s')
- // => 'M 10,80 C 95 80 151.667 80 180,80'
+// => 'M 10,80 C 95 80 151.667 80 180,80'
 
- upgradeToCurve('M10 80 Q 95 10 180 80', '%s')
- // => M 10,80 C 73.75 27.5 137.5 45 180,80
+upgradeToCurve('M10 80 Q 95 10 180 80', '%s')
+// => M 10,80 C 73.75 27.5 137.5 45 180,80
 
- upgradeToCurve([10, 80, 95, 10, 180, 80], '[]')
- // => [["M",10,80],["C",73.75,27.5,137.5,45,180,80]]</code></pre>
+upgradeToCurve([10, 80, 95, 10, 180, 80], '[]')
+// => [["M",10,80],["C",73.75,27.5,137.5,45,180,80]]</code></pre>
 
 
 
@@ -4863,7 +5340,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 22 2017 12:17:23 GMT+0800 (CST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 22 2017 19:48:55 GMT+0800 (CST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

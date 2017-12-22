@@ -8,11 +8,11 @@
  * @returns {Array} 返回旋转后的新点坐标
  * @example
  * 
- *   rotatingPoint([0, 0, 1, 0], Math.PI / 4);
- *   // => [0.7071, 0.7071]
+ * rotatingPoint([0, 0, 1, 0], Math.PI / 4);
+ * // => [0.7071, 0.7071]
  *
- *   rotatingPoint([0, 0, 1, 0], -3 * Math.PI / 4);
- *   // => [-0.7071, -0.7071]; 
+ * rotatingPoint([0, 0, 1, 0], -3 * Math.PI / 4);
+ * // => [-0.7071, -0.7071]; 
  *
  */
 

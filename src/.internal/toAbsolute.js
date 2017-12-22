@@ -13,11 +13,11 @@ import toString from './toString'
  *
  * @example
  *
- *   toAbsolute("M10 10 h 80 v 80 h -80 Z")
- *   // => "M 10,10 H 90 V 90 H 10 Z"
+ * toAbsolute("M10 10 h 80 v 80 h -80 Z")
+ * // => "M 10,10 H 90 V 90 H 10 Z"
  *	 
- *	 toAbsolute("M10 10 h 80 v 80 h -80 Z", true)
- *	 // => [["M",10,10],["H",90],["V",90],["H",10],["Z"]]
+ * toAbsolute("M10 10 h 80 v 80 h -80 Z", true)
+ * // => [["M",10,10],["H",90],["V",90],["H",10],["Z"]]
  *
  */
 

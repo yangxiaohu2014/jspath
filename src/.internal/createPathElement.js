@@ -9,7 +9,7 @@ import isString from './isString'
  * @returns {Dom} 返回SVG Path Dom.
  * @example
  *
- * const pathEl = createPathElement()
+ * createPathElement()
  *
  */
 

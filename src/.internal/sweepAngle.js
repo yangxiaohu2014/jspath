@@ -8,9 +8,9 @@
  *
  * @example
  *
- *   sweepAngle([1, 2, -1, 2, 1, 3])
- *   
- *   // => 270
+ * sweepAngle([1, 2, -1, 2, 1, 3])
+ * 
+ * // => 270
  */
 
 function sweepAngle(points) {

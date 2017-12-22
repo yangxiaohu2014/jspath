@@ -12,9 +12,9 @@ import toAbsolute from './toAbsolute'
  *
  * @example
  *
- *   getArcCenter(-2, 0, 2, 1, 0, 1, 1, Math.PI, 2, 0)
- *   
- *   // => [0, 0]
+ * getArcCenter(-2, 0, 2, 1, 0, 1, 1, Math.PI, 2, 0)
+ * 
+ * // => [0, 0]
  */
 
 function getArcCenter(...values) {

@@ -10,15 +10,20 @@ import flattern from './flattern'
 
 /**
  * @name cutArc
- * @description 将一条椭圆弧切割成两条
+ * @description 切割复合路径
  * @function
  * @since 0.1.0
- * @param  {Array|String} path [不包含命令参数的数组或者包含命令参数的字符串]
- *   'M x1,y1 [A|a] rx ry x_axis_rotation large_arc_flag sweep_flag x3,y3' 
+ * @param  {Array|String} path [包含命令参数的数组或者包含命令参数的字符串]
  * @param  {Number} t     [分割的位置比例，[0, 1]]
  * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
- * @returns {Array}        [分割后得到的两段椭圆弧参数]
+ * @returns {Array}        [分割后得到的两段路径参数]
+ * @example
+ * 
+ * cutArc('M100,100A120,60,-60,0,0,150,330', .8)
+ * // => [[["M",100,100],["A",120,60,-60,0,0,76.61737060546875,375.81121826171875]],[["M",76.61737060546875,375.81121826171875],["A",120,60,-60,0,0,150,330]]]
  *
+ * cutArc('M100,100A120,60,-60,0,0,150,330', .4, '%s')
+ * // => ["M 100,100 A 120 60 -60 0 0 13.049847602844238,249.80311584472656","M 13.049847602844238,249.80311584472656 A 120 60 -60 0 0 150,330"]
  */
 function cutArc(path, t = 0, pattern = '[]') {
     if (!isNumber(t)) {

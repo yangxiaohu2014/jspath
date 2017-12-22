@@ -2,7 +2,8 @@ const methods = ['binarySearch', 'createPathElement', 'cut', 'cutArc',
 'cutBezier', 'cutLine', 'fix', 'flattern', 'getArcCenter', 'getShapes',
 'shapesToArray', 'isArray', 'isNumber', 'isString', 'length', 'rotatingPoint',
 'sweepAngle', 'toAbsolute', 'toArray', 'toCurve', 'toNormalize', 'toRelative',
-'toString', 'transformCoord', 'upgradeBezier', 'upgradeToCurve', 'cut', 'sub'
+'toString', 'transformCoord', 'upgradeBezier', 'upgradeToCurve', 'cut', 'sub',
+'tween'
 ]
 
 var len = methods.length

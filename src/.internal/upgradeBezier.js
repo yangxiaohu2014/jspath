@@ -4,6 +4,27 @@ import isArray from './isArray'
 import isString from './isString'
 import fix from './fix'
 
+/**
+ * @name upgradeBezier
+ * @description 升阶贝塞尔曲线
+ * @function
+ * @since 0.1.0
+ * @param  {Array|String} path [不包含命令参数的数组或者包含命令参数的字符串]
+ * @param  {string} pattern [输出的格式，可选项为'[]', '%,', '%s', '%/n']
+ * @returns {Array|String}   [升阶后的贝塞尔曲线]
+ * @example
+ * 
+ * upgradeBezier('M10 80 L 180 80', 2)
+ * // => [10, 80, 123.333, 80, 180, 80]
+ *
+ * upgradeBezier('M10 80 L 180 80', 3)
+ * // => [10, 80, 95, 80, 151.667, 80, 180, 80]
+ *
+ * upgradeBezier('M10 80 C 123.333, 80, 180, 80', 4)
+ * // => [10, 80, 78, 80, 129, 80, 163, 80, 180, 80]
+ *
+ */
+
 function upgradeBezier(path, degree = 3) {
     if (!isString(path) && !isArray(path)) {
         return console.warn('path')
@@ -16,11 +37,6 @@ function upgradeBezier(path, degree = 3) {
 
     var ps = isArray(path) ? path.slice(0) : flattern(toAbsolute(path, '[]', true))
     var degree0 = Math.round(ps.length * 0.5 - 1)//贝赛尔曲线的原始阶
-
-    if (degree0 >= degree) {
-        return fix(ps, 3)
-    }
-
     var result = [], i
 
     while(degree0 < degree) {
